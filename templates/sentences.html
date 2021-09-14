@@ -1,0 +1,36 @@
+<html> 
+<head> 
+    <title>Result of Summarization</title>
+<style>
+    table{
+        border-collapse: collapse;
+        font-size: larger;
+    }
+    td,th{
+        padding: 8px;
+        text-align: left;
+        {#border-bottom: 1px solid #ddd;#}
+    }
+</style>
+    <script>
+        $(document).ready(function () {
+            $(#data).on('sentences',function (sentences) {
+                $('#data').append('<tr><td>'+sentences+'</td><td>'+context+'</td></tr>')
+            })
+        })
+    </script>
+</head>
+
+<body bgcolor="#d3d3d3">
+<table align="center" id="data" bgcolor="#f0ffff" style="border-radius: 18px;box-shadow: 3px 3px 5px #999999;">
+<th>Sentences</th>
+<th>Context</th>
+<!-- For loop logic of jinja template -->
+{%for i in range(0, len)%}
+  <tr>
+  <td>{{ sentences[i] }}</td><td>{{ context[i] }}</td>
+  </tr>
+{%endfor%}
+</table>
+</body> 
+</html> 
